@@ -78,7 +78,7 @@ To open the project:
 - Finish
 
 To run:
-- Right click in the Project name
+- Right click in the Project nom
 - Select "Run As"
 - Select "Maven Build..."
 - Write into Goals: "spring-boot:run"

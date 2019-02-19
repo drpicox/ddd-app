@@ -1,4 +1,4 @@
-package com.drpicox.dddapp;
+package com.drpicox.dddapp.bowling;
 
 import org.springframework.stereotype.Component;
 

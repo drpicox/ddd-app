@@ -10,6 +10,16 @@ Feature: DDD Bowling Game
     When gutter rolls 20 times 0 pins
     Then the score of the gutter game is 0
 
+  Scenario: Two independent games
+    Given a new one Bowling Game
+    And a new two Bowling Game extra
+
+    When one rolls 20 times 1 pins
+    And two rolls 20 times 2 pins
+
+    Then the score of the one game is 20
+    And the score of the two game is 40
+
   Scenario: All ones
     Given a new allOnes Bowling Game
     When allOnes rolls 20 times 1 pins

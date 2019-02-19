@@ -1,19 +1,21 @@
 package com.drpicox.dddapp;
 
 
+import com.drpicox.dddapp.bowling.BowlingGame;
+import com.drpicox.dddapp.bowling.BowlingGameFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-@SpringBootTest
 public class DDDBowlingStepDefs {
 
     @Autowired
@@ -21,8 +23,14 @@ public class DDDBowlingStepDefs {
 
     private Map<String, BowlingGame> games = new HashMap<>();
 
-    @Given("a new (\\w+) Bowling Game")
+    @Given("^a new (\\w+) Bowling Game$")
     public void new_bowling_game(String gameName) {
+        BowlingGame game = bowlingGameFactory.create();
+        games.put(gameName, game);
+    }
+
+    @And("a new (\\w+) Bowling Game extra")
+    public void new_bowling_game_extra(String gameName) {
         BowlingGame game = bowlingGameFactory.create();
         games.put(gameName, game);
     }

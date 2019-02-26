@@ -46,7 +46,7 @@ public class BookingsStepDefs {
         carSharingController.pickupCar(car, member, effectiveStartDate);
     }
 
-    @When("^(\\w+) finalizes the (\\w+) car booking today at (\\d+:\\d+) h$")
+    @When("^(\\w+) (?:tries to finalize|finalizes) the (\\w+) car booking today at (\\d+:\\d+) h$")
     public void XXX_finalizes_the_XXX_car_booking_today_at_XXX_h(String memberName, String carName, @Format("HH:mm") Date effectiveEndDate) {
         Car car = namedObjectsRegistry.recall(carName);
         Member member = namedObjectsRegistry.recall(memberName);

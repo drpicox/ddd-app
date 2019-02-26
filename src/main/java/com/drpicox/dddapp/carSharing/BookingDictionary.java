@@ -28,6 +28,8 @@ public class BookingDictionary {
     }
 
     public void finalize(Car car, Member member, Date effectiveEndDate) {
+        if (!car.isLocatedAtZone()) return;
+
         Booking booking = find(car, member, effectiveEndDate);
 
         booking.finalizeAt(effectiveEndDate);

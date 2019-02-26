@@ -74,3 +74,18 @@ Feature: DDD Car Sharing
     And Peter has 1 finalized bookings
     And Peter has picked up the Ranganito car at 13:13 and returned it at 16:54 h
     And the Ranganito car is located at the TecnoCampus zone
+
+
+  Scenario: Peter cannot return the car because the car is not located at its zone
+    Given the member Peter with the TecnoCampus zone
+    And the car Ranganito at the TecnoCampus zone and a range of 270 Km
+    And Peter books the Ranganito car for today from 13:00 to 17:00 h
+    And Peter has picked up the Ranganito car today at 13:13 h
+    And the Ranganito car was driven to the Glories zone
+
+    When Peter tries to finalize the Ranganito car booking today at 16:54 h
+
+    Then Peter has 1 bookings
+    And Peter has 0 finalized bookings
+    And Peter has booked the Ranganito car for today from 13:00 to 17:00 h
+    And the Ranganito car is located at the Glories zone
